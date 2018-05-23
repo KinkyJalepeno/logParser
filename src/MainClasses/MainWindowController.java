@@ -7,13 +7,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class MainWindowController {
+public class MainWindowController implements Initializable {
 
     private String filePath;
     private String url = "jdbc:sqlite:C://sqlite/errorDump.db";
@@ -82,19 +80,19 @@ public class MainWindowController {
 
         statusLabel.setText("Reading CDR....");
 
-        (new Thread(new parseFile(filePath, url, recordsLabel, statusLabel))).start();
+        (new Thread(new parseFileThread(filePath, url, recordsLabel, statusLabel))).start();
 
     }
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//
-//        try {
-//            DatabaseCommand command = new DatabaseCommand(url);
-//            command.flushDatabase();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        try {
+            DatabaseCommand command = new DatabaseCommand();
+            command.flushDatabase();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

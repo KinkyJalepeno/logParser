@@ -3,9 +3,9 @@ package MainClasses;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 
-import java.io.FileNotFoundException;
+import java.sql.SQLException;
 
-public class parseFile implements Runnable {
+public class parseFileThread implements Runnable {
 
     private String url;
     private String filePath;
@@ -13,7 +13,7 @@ public class parseFile implements Runnable {
     private Label statusLabel;
 
 
-    public parseFile(String filePath, String url, Label recordsLabel, Label statusLabel) {
+    public parseFileThread(String filePath, String url, Label recordsLabel, Label statusLabel) {
 
         this.url = url;
         this.filePath = filePath;
@@ -24,19 +24,15 @@ public class parseFile implements Runnable {
     @Override
     public void run() {
 
-        FileLoader loader = null;
+        FileOperation loader = null;
         try {
-            loader = new FileLoader(filePath);
+            loader = new FileOperation(filePath);
             loader.readFile(recordsLabel);
         } catch (java.io.IOException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                statusLabel.setText("Completed...");
-
-            }
-        });
+        Platform.runLater(()->statusLabel.setText("Completed...."));
     }
 }

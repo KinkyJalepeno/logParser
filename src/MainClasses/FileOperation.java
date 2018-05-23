@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class FileLoader {
+public class FileOperation {
 
     private FileReader txtIn;
     private BufferedReader readIn;
@@ -18,37 +18,30 @@ public class FileLoader {
     private String card;
     private String port;
     private String errorCode;
+    private DatabaseCommand command;
 
     private int count;
 
 
-    public FileLoader(String filePath) throws FileNotFoundException {
+    public FileOperation(String filePath) throws FileNotFoundException, SQLException {
 
         txtIn = new FileReader(filePath);
         readIn = new BufferedReader(txtIn);
-
-    }
-
-    public FileLoader() {
+        command = new DatabaseCommand();
 
     }
 
     public void readFile(Label recordsLabel) throws IOException {
 
         while (line != null) {
-            count ++;
+            count++;
             line = readIn.readLine();
             extractErrorCode(line);
         }
         txtIn.close();
         readIn.close();
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                recordsLabel.setText(String.valueOf(count));
-            }
-        });
+        Platform.runLater(()->recordsLabel.setText(String.valueOf(count)));
     }
 
     private void extractErrorCode(String line) {
@@ -66,13 +59,10 @@ public class FileLoader {
             if (errorCode.contains("confirmation")) {
                 return;
             } else {
-                System.out.println("Card: " + card + " Port: " + port + " Send Status = " + errorCode);
+                //System.out.println("Card: " + card + " Port: " + port + " Send Status = " + errorCode);
+                command.writeToDatabase(card, port, errorCode);
             }
         }
-    }
-
-    public int getCount() {
-
-        return count;
+        command.writeToDatabase(null,null,null);
     }
 }

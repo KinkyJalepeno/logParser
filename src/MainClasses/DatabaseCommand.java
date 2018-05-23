@@ -27,13 +27,22 @@ public class DatabaseCommand {
         executeCommand(sqlCommand);
     }
 
+
+    public void writeToDatabase(String card, String port, String errorCode) {
+
+        String sqlCommand = ("INSERT INTO codes VALUES ('" + card + "','" + port + "','" + errorCode + "')");
+
+        System.out.println("sqlCommand = " + sqlCommand);
+
+        executeCommand(sqlCommand);
+    }
+
     private void executeCommand(String sqlCommand) {
 
         try {
             stmt.executeQuery(sqlCommand);
         } catch (SQLException e) {
-            e.printStackTrace();
+
         }
     }
-
 }
