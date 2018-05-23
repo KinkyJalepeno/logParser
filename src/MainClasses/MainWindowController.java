@@ -13,7 +13,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class MainWindowController  {
+public class MainWindowController {
 
     private String filePath;
     private String url = "jdbc:sqlite:C://sqlite/errorDump.db";
@@ -78,14 +78,11 @@ public class MainWindowController  {
     }
 
     @FXML
-    private void loadFile() throws IOException {
+    private void loadFile() {
 
-        FileLoader loader = new FileLoader(filePath);
-        try {
-            loader.readFile(recordsLabel);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        statusLabel.setText("Reading CDR....");
+
+        (new Thread(new parseFile(filePath, url, recordsLabel, statusLabel))).start();
 
     }
 
@@ -99,4 +96,5 @@ public class MainWindowController  {
 //            e.printStackTrace();
 //        }
 //    }
+
 }

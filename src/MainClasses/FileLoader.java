@@ -1,5 +1,6 @@
 package MainClasses;
 
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 
 import java.io.BufferedReader;
@@ -12,7 +13,13 @@ public class FileLoader {
 
     private FileReader txtIn;
     private BufferedReader readIn;
+
     private String line = "fake value";
+    private String card;
+    private String port;
+    private String errorCode;
+
+    private int count;
 
 
     public FileLoader(String filePath) throws FileNotFoundException {
@@ -22,31 +29,50 @@ public class FileLoader {
 
     }
 
-    public void readFile(Label recordsLabel) throws IOException, SQLException {
+    public FileLoader() {
 
-        int recordCount = 0;
+    }
+
+    public void readFile(Label recordsLabel) throws IOException {
+
         while (line != null) {
+            count ++;
             line = readIn.readLine();
-
-            recordCount++;
-            recordsLabel.setText(String.valueOf(recordCount - 1));
-
             extractErrorCode(line);
         }
         txtIn.close();
         readIn.close();
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                recordsLabel.setText(String.valueOf(count));
+            }
+        });
     }
 
     private void extractErrorCode(String line) {
 
+
         if (line != null) {
+
             String errorArray[] = line.split("[|]");
-            String errorCode = (errorArray[5]);
+
+            card = (errorArray[1]);
+            port = (errorArray[2]);
+            errorCode = (errorArray[5]);
+
+
             if (errorCode.contains("confirmation")) {
                 return;
-            }else {
-                System.out.println("errorCode = " + errorCode);
+            } else {
+                System.out.println("Card: " + card + " Port: " + port + " Send Status = " + errorCode);
             }
         }
+    }
+
+    public int getCount() {
+
+        return count;
     }
 }
