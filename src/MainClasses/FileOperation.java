@@ -59,10 +59,9 @@ public class FileOperation {
             if (errorCode.contains("confirmation")) {
                 return;
             } else {
-                //System.out.println("Card: " + card + " Port: " + port + " Send Status = " + errorCode);
+                System.out.println("Card: " + card + " Port: " + port + " Send Status = " + errorCode);
                 command.writeToDatabase(card, port, errorCode);
             }
         }
-        command.writeToDatabase(null,null,null);
     }
 }

@@ -30,7 +30,7 @@ public class DatabaseCommand {
 
     public void writeToDatabase(String card, String port, String errorCode) {
 
-        String sqlCommand = ("INSERT INTO codes VALUES ('" + card + "','" + port + "','" + errorCode + "')");
+        String sqlCommand = ("INSERT INTO codes VALUES ('" + card + "','" + port + "','" + errorCode + "');");
 
         System.out.println("sqlCommand = " + sqlCommand);
 

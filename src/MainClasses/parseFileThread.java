@@ -7,15 +7,13 @@ import java.sql.SQLException;
 
 public class parseFileThread implements Runnable {
 
-    private String url;
     private String filePath;
     private Label recordsLabel;
     private Label statusLabel;
 
 
-    public parseFileThread(String filePath, String url, Label recordsLabel, Label statusLabel) {
+    public parseFileThread(String filePath, Label recordsLabel, Label statusLabel) {
 
-        this.url = url;
         this.filePath = filePath;
         this.recordsLabel = recordsLabel;
         this.statusLabel = statusLabel;

@@ -14,7 +14,6 @@ import java.util.ResourceBundle;
 public class MainWindowController implements Initializable {
 
     private String filePath;
-    private String url = "jdbc:sqlite:C://sqlite/errorDump.db";
 
     @FXML
     private Label statusLabel;
@@ -80,7 +79,7 @@ public class MainWindowController implements Initializable {
 
         statusLabel.setText("Reading CDR....");
 
-        (new Thread(new parseFileThread(filePath, url, recordsLabel, statusLabel))).start();
+        (new Thread(new parseFileThread(filePath, recordsLabel, statusLabel))).start();
 
     }
 
