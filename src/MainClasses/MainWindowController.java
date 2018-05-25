@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -76,26 +76,22 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    private void loadFile() {
+    private void loadFile() throws IOException, SQLException {
 
-        statusLabel.setText("Reading CDR....");
+        DatabaseOperation parseFile = new DatabaseOperation(filePath);
+        parseFile.executeParse(statusLabel);
 
-        try {
-            (new Thread(new parseFileThread(filePath))).start();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        int count = parseFile.getRecordCount();
+        recordsLabel.setText(String.valueOf(count));
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
         try {
-            DatabaseCommand command = new DatabaseCommand();
-            command.flushDatabase();
+            DatabaseOperation cleanDatabase = new DatabaseOperation();
+            cleanDatabase.executeFlush();
         } catch (SQLException e) {
             e.printStackTrace();
         }

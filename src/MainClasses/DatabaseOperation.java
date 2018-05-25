@@ -1,18 +1,20 @@
 package MainClasses;
 
+import javafx.application.Platform;
+import javafx.scene.control.Label;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
 
-public class parseFileThread implements Runnable {
+public class DatabaseOperation {
 
 
     private String line;
     private FileReader reader;
     private BufferedReader txtIn;
-    private DatabaseCommand command;
     private int count;
 
     private Connection conn;
@@ -21,7 +23,7 @@ public class parseFileThread implements Runnable {
     private PreparedStatement ps;
 
 
-    public parseFileThread(String filePath) throws FileNotFoundException, SQLException {
+    public DatabaseOperation(String filePath) throws FileNotFoundException, SQLException {
 
         reader = new FileReader(filePath);
         txtIn = new BufferedReader(reader);
@@ -33,20 +35,26 @@ public class parseFileThread implements Runnable {
 
     }
 
-    @Override
-    public void run() {
+    public DatabaseOperation() throws SQLException {
 
-        try {
-            readAndParseFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        url = "jdbc:sqlite:C://sqlite/errorDump.db";
+        conn = DriverManager.getConnection(url);
+        stmt = conn.createStatement();
 
     }
 
-    private void readAndParseFile() throws IOException, SQLException {
+
+    public void executeFlush() {
+
+        String sqlCommand = "DELETE FROM codes;";
+        try {
+            stmt.executeQuery(sqlCommand);
+        } catch (SQLException e) {
+
+        }
+    }
+
+    void executeParse(Label statusLabel) throws IOException, SQLException {
 
         String tmp = txtIn.readLine();
         conn.setAutoCommit(false);
@@ -69,10 +77,12 @@ public class parseFileThread implements Runnable {
 
             tmp = txtIn.readLine();
         }
-        executeAndClose();
+        Platform.runLater(()-> statusLabel.setText("Completed.."));
+
+        executeBatchAndClose();
     }
 
-    private void executeAndClose() throws SQLException, IOException {
+    void executeBatchAndClose() throws SQLException, IOException {
 
         ps.executeBatch();
         conn.commit();
@@ -83,6 +93,12 @@ public class parseFileThread implements Runnable {
         conn.close();
 
         System.out.println("Job done !!!");
+        //TODO from here I need to think about storing labels in an array
 
+    }
+
+    public int getRecordCount(){
+
+        return count;
     }
 }
