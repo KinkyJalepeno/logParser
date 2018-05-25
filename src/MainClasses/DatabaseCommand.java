@@ -1,15 +1,13 @@
 package MainClasses;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseCommand {
 
     private Connection conn;
     private Statement stmt;
     private String url;
+    private PreparedStatement ps;
 
 
 
@@ -18,31 +16,32 @@ public class DatabaseCommand {
         url = "jdbc:sqlite:C://sqlite/errorDump.db";
         conn = DriverManager.getConnection(url);
         stmt = conn.createStatement();
+        ps = conn.prepareStatement("insert into codes (card, port, errorCode) values (?,?,?)");
 
     }
 
-    public void flushDatabase(){
+    public void flushDatabase() {
 
         String sqlCommand = "DELETE FROM codes;";
-        executeCommand(sqlCommand);
-    }
-
-
-    public void writeToDatabase(String card, String port, String errorCode) {
-
-        String sqlCommand = ("INSERT INTO codes VALUES ('" + card + "','" + port + "','" + errorCode + "');");
-
-        System.out.println("sqlCommand = " + sqlCommand);
-
-        executeCommand(sqlCommand);
-    }
-
-    private void executeCommand(String sqlCommand) {
-
         try {
             stmt.executeQuery(sqlCommand);
         } catch (SQLException e) {
 
         }
     }
+
+    public void writeToDatabase(String card, String port, String errorCode) throws SQLException {
+
+        if(errorCode.contains("confirmation")){
+            return;
+        }else {
+
+            ps.setInt(1, Integer.parseInt(card));
+            ps.setInt(2, Integer.parseInt(port));
+            ps.setString(3, (errorCode));
+            ps.addBatch();
+        }
+        ps.executeBatch();
+    }
+
 }

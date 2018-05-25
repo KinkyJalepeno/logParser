@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -79,7 +80,13 @@ public class MainWindowController implements Initializable {
 
         statusLabel.setText("Reading CDR....");
 
-        (new Thread(new parseFileThread(filePath, recordsLabel, statusLabel))).start();
+        try {
+            (new Thread(new parseFileThread(filePath))).start();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
