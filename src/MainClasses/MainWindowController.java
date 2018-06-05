@@ -21,39 +21,22 @@ public class MainWindowController implements Initializable {
     @FXML
     private Label recordsLabel;
 
-//    @FXML private Label code1;
-//    @FXML private Label code2;
-//    @FXML private Label code3;
-//    @FXML private Label code4;
-//    @FXML private Label code5;
-//    @FXML private Label code6;
-//    @FXML private Label code7;
-//    @FXML private Label code8;
-//    @FXML private Label code9;
-//    @FXML private Label code10;
-//    @FXML private Label code11;
-//    @FXML private Label code12;
-//    @FXML private Label code13;
-//    @FXML private Label code14;
-//    @FXML private Label code15;
-//    @FXML private Label code16;
-//
-//    @FXML private Label count1;
-//    @FXML private Label count2;
-//    @FXML private Label count3;
-//    @FXML private Label count4;
-//    @FXML private Label count5;
-//    @FXML private Label count6;
-//    @FXML private Label count7;
-//    @FXML private Label count8;
-//    @FXML private Label count9;
-//    @FXML private Label count10;
-//    @FXML private Label count11;
-//    @FXML private Label count12;
-//    @FXML private Label count13;
-//    @FXML private Label count14;
-//    @FXML private Label count15;
-//    @FXML private Label count16;
+    @FXML private Label code0;
+    @FXML private Label code1;
+    @FXML private Label code2;
+    @FXML private Label code3;
+    @FXML private Label code4;
+    @FXML private Label code5;
+    @FXML private Label code6;
+    @FXML private Label code7;
+    @FXML private Label code8;
+    @FXML private Label code9;
+    @FXML private Label code10;
+    @FXML private Label code11;
+    @FXML private Label code12;
+    @FXML private Label code13;
+    @FXML private Label code14;
+    @FXML private Label code15;
 
     @FXML
     private TextField absolutePathLabel;
@@ -97,4 +80,11 @@ public class MainWindowController implements Initializable {
         }
     }
 
+    private void errorCountsToLabels(){
+
+        Label[] labels = {code0, code1, code2, code3, code4, code5, code6, code7, code8, code9, code10, code11
+        , code12, code13, code14, code15};
+
+        //TODO from here I need to think about storing labels in an array
+    }
 }

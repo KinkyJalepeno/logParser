@@ -19,38 +19,22 @@
       <Button fx:id="parseItButton" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#loadFile" prefHeight="25.0" prefWidth="78.0" text="Parse It" />
       <Pane layoutX="14.0" layoutY="79.0" prefHeight="121.0" prefWidth="528.0" style="-fx-border-color: black; -fx-background-color: rgb(220,220,220);">
          <children>
-            <Label fx:id="code1" layoutX="27.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count1" layoutX="85.0" layoutY="10.0" />
-            <Label fx:id="code2" layoutX="155.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count2" layoutX="213.0" layoutY="10.0" />
-            <Label fx:id="code3" layoutX="277.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count3" layoutX="335.0" layoutY="10.0" />
-            <Label fx:id="code4" layoutX="414.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count4" layoutX="472.0" layoutY="10.0" />
-            <Label fx:id="code5" layoutX="27.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count5" layoutX="85.0" layoutY="38.0" />
-            <Label fx:id="code6" layoutX="155.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count6" layoutX="213.0" layoutY="38.0" />
-            <Label fx:id="code7" layoutX="277.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count7" layoutX="335.0" layoutY="38.0" />
-            <Label fx:id="code8" layoutX="414.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count8" layoutX="472.0" layoutY="38.0" />
-            <Label fx:id="code9" layoutX="27.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count9" layoutX="85.0" layoutY="66.0" />
-            <Label fx:id="code10" layoutX="155.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count10" layoutX="213.0" layoutY="66.0" />
-            <Label fx:id="code11" layoutX="277.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count11" layoutX="335.0" layoutY="66.0" />
-            <Label fx:id="code12" layoutX="414.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count12" layoutX="472.0" layoutY="66.0" />
-            <Label fx:id="code13" layoutX="27.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count13" layoutX="85.0" layoutY="93.0" />
-            <Label fx:id="code14" layoutX="155.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count14" layoutX="213.0" layoutY="93.0" />
-            <Label fx:id="code15" layoutX="277.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count15" layoutX="335.0" layoutY="93.0" />
-            <Label fx:id="code16" layoutX="414.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="count16" layoutX="472.0" layoutY="93.0" />
+            <Label fx:id="code0" layoutX="27.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code1" layoutX="155.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code2" layoutX="277.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code3" layoutX="414.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code4" layoutX="27.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code5" layoutX="155.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code6" layoutX="277.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code7" layoutX="414.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code8" layoutX="27.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code9" layoutX="155.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code10" layoutX="277.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code11" layoutX="414.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code12" layoutX="27.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code13" layoutX="155.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code14" layoutX="277.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code15" layoutX="414.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
          </children></Pane>
       <Label fx:id="statusLabel" layoutX="159.0" layoutY="54.0" prefHeight="17.0" prefWidth="103.0">
          <font>

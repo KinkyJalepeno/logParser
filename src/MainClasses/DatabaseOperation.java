@@ -93,7 +93,6 @@ public class DatabaseOperation {
         conn.close();
 
         System.out.println("Job done !!!");
-        //TODO from here I need to think about storing labels in an array
 
     }
 
