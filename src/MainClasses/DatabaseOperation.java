@@ -60,6 +60,7 @@ public class DatabaseOperation {
         conn.setAutoCommit(false);
 
         while (tmp != null) {
+
             line = tmp;
 
             count++;
@@ -70,10 +71,7 @@ public class DatabaseOperation {
             String port = (errorArray[2]);
             String errorCode = (errorArray[5]);
 
-            ps.setInt(1, Integer.parseInt(card));
-            ps.setInt(2, Integer.parseInt(port));
-            ps.setString(3, (errorCode));
-            ps.addBatch();
+            checkForKeyword(errorCode, card, port);
 
             tmp = txtIn.readLine();
         }
@@ -99,5 +97,16 @@ public class DatabaseOperation {
     public int getRecordCount(){
 
         return count;
+    }
+
+    void checkForKeyword(String errorCode, String card, String port) throws SQLException {
+
+        if(errorCode.contains("confirmation")){
+            return;
+        }
+        ps.setInt(1, Integer.parseInt(card));
+        ps.setInt(2, Integer.parseInt(port));
+        ps.setString(3, (errorCode));
+        ps.addBatch();
     }
 }
