@@ -57,6 +57,8 @@ public class DatabaseOperation {
 
     void executeParse(Label statusLabel) throws IOException, SQLException {
 
+        executeFlush();
+
         String tmp = txtIn.readLine();
         conn.setAutoCommit(false);
 
@@ -126,5 +128,10 @@ public class DatabaseOperation {
             labelRef ++;
             System.out.println("result = " + error + "-" + count);
         }
+    }
+
+    public void queryErrorCode() {
+
+        String sqlCommand = "";
     }
 }
