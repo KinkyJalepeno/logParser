@@ -19,22 +19,22 @@
       <Button fx:id="parseItButton" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onAction="#loadFile" prefHeight="25.0" prefWidth="78.0" text="Parse It" />
       <Pane layoutX="14.0" layoutY="79.0" prefHeight="121.0" prefWidth="528.0" style="-fx-border-color: black; -fx-background-color: rgb(220,220,220);">
          <children>
-            <Label fx:id="code0" layoutX="27.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code1" layoutX="155.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code2" layoutX="277.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code3" layoutX="414.0" layoutY="10.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code4" layoutX="27.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code5" layoutX="155.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code6" layoutX="277.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code7" layoutX="414.0" layoutY="38.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code8" layoutX="27.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code9" layoutX="155.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code10" layoutX="277.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code11" layoutX="414.0" layoutY="66.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code12" layoutX="27.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code13" layoutX="155.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code14" layoutX="277.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
-            <Label fx:id="code15" layoutX="414.0" layoutY="93.0" prefHeight="17.0" prefWidth="51.0" />
+            <Label fx:id="code0" layoutX="27.0" layoutY="10.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code4" layoutX="155.0" layoutY="10.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code8" layoutX="285.0" layoutY="10.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code12" layoutX="414.0" layoutY="10.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code1" layoutX="27.0" layoutY="38.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code5" layoutX="155.0" layoutY="38.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code9" layoutX="285.0" layoutY="38.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code13" layoutX="414.0" layoutY="38.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code2" layoutX="27.0" layoutY="66.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code6" layoutX="155.0" layoutY="66.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code10" layoutX="285.0" layoutY="66.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code14" layoutX="414.0" layoutY="66.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code3" layoutX="27.0" layoutY="93.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code7" layoutX="155.0" layoutY="93.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code11" layoutX="285.0" layoutY="93.0" prefHeight="17.0" prefWidth="90.0" />
+            <Label fx:id="code15" layoutX="414.0" layoutY="93.0" prefHeight="17.0" prefWidth="90.0" />
          </children></Pane>
       <Label fx:id="statusLabel" layoutX="159.0" layoutY="54.0" prefHeight="17.0" prefWidth="103.0">
          <font>

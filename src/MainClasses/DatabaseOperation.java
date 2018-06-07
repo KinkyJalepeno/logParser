@@ -21,6 +21,7 @@ public class DatabaseOperation {
     private Statement stmt;
     private String url;
     private PreparedStatement ps;
+    private ResultSet rs;
 
 
     public DatabaseOperation(String filePath) throws FileNotFoundException, SQLException {
@@ -80,20 +81,6 @@ public class DatabaseOperation {
         executeBatchAndClose();
     }
 
-    void executeBatchAndClose() throws SQLException, IOException {
-
-        ps.executeBatch();
-        conn.commit();
-
-        ps.close();
-        reader.close();
-        txtIn.close();
-        conn.close();
-
-        System.out.println("Job done !!!");
-
-    }
-
     public int getRecordCount(){
 
         return count;
@@ -108,5 +95,36 @@ public class DatabaseOperation {
         ps.setInt(2, Integer.parseInt(port));
         ps.setString(3, (errorCode));
         ps.addBatch();
+    }
+
+    void executeBatchAndClose() throws SQLException, IOException {
+
+        ps.executeBatch();
+        conn.commit();
+
+        ps.close();
+        reader.close();
+        txtIn.close();
+        //conn.close();
+
+        System.out.println("Job done !!!");
+
+    }
+
+    public void getErrors(Label[] labels) throws SQLException {
+
+        String sqlCommand = "select errorcode, count(*) from codes GROUP BY errorcode order by 2 DESC;";
+        rs = stmt.executeQuery(sqlCommand);
+        int labelRef = 0;
+
+        while(rs.next()) {
+            String error = rs.getString(1);
+            int count = rs.getInt(2);
+
+            labels[labelRef].setText(error + " - " + count);
+
+            labelRef ++;
+            System.out.println("result = " + error + "-" + count);
+        }
     }
 }

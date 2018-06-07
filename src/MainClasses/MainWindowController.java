@@ -61,16 +61,18 @@ public class MainWindowController implements Initializable {
     @FXML
     private void loadFile() throws IOException, SQLException {
 
-        DatabaseOperation parseFile = new DatabaseOperation(filePath);
-        parseFile.executeParse(statusLabel);
+        DatabaseOperation operation = new DatabaseOperation(filePath);
+        operation.executeParse(statusLabel);
 
-        int count = parseFile.getRecordCount();
+        int count = operation.getRecordCount();
         recordsLabel.setText(String.valueOf(count));
+
+        flushLabels();
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
 
         try {
             DatabaseOperation cleanDatabase = new DatabaseOperation();
@@ -80,11 +82,16 @@ public class MainWindowController implements Initializable {
         }
     }
 
-    private void errorCountsToLabels(){
+    private void flushLabels() throws SQLException {
 
         Label[] labels = {code0, code1, code2, code3, code4, code5, code6, code7, code8, code9, code10, code11
         , code12, code13, code14, code15};
 
-        //TODO from here I need to think about storing labels in an array
+        for(int i = 0; i < labels.length; i++){
+
+            labels[i].setText("");
+        }
+        DatabaseOperation operation = new DatabaseOperation();
+        operation.getErrors(labels);
     }
 }
