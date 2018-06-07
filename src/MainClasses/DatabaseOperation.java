@@ -132,6 +132,6 @@ public class DatabaseOperation {
 
     public void queryErrorCode() {
 
-        String sqlCommand = "";
+        String sqlCommand = "Select *, count(*) from codes where errorCode = 'Err-006F' GROUP BY card order by 3 asc;";
     }
 }
