@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 public class MainWindowController implements Initializable {
 
     private String filePath;
+    private String errorCode;
+
 
     @FXML
     private Label statusLabel;
@@ -95,16 +97,16 @@ public class MainWindowController implements Initializable {
     @FXML
     private void queryError0() {
 
-        Stage primaryStage = new Stage();
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("errorWindowUI.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(code0.getText() != null) {
+            String labelContents = code0.getText();
+            String errorArray[] = labelContents.split("[\\s-\\s]");
+            errorCode = errorArray[1];
+
+            openErrorWindow();
+
+
         }
-        //primaryStage.setTitle("Error Analysis");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        return;
     }
 
     @Override
@@ -129,6 +131,29 @@ public class MainWindowController implements Initializable {
         }
         DatabaseOperation operation = new DatabaseOperation();
         operation.getErrors(labels);
+    }
+
+    private void openErrorWindow(){
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ErrorWindowUI.fxml"));
+            Parent root1 = loader.load();
+
+            Stage primaryStage = new Stage();
+            primaryStage.setScene(new Scene(root1));
+            primaryStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //primaryStage.setTitle("Error Analysis");
+
+    }
+
+    public String getErrorCode(){
+
+        return errorCode;
     }
 
 
