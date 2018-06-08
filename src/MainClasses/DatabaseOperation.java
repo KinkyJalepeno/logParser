@@ -133,19 +133,15 @@ public class DatabaseOperation {
 
     public void queryErrorCode(TextArea textArea, String errorCode) throws SQLException {
 
-        System.out.println(errorCode);
-        textArea.setText("Im here in database ops");
+        String sqlCommand = "Select *, count(*) from codes where errorCode = '"+ errorCode + "' GROUP BY card order by 4 Desc;";
+        rs = stmt.executeQuery(sqlCommand);
 
+        while(rs.next()){
+            String card = rs.getString(1);
+            String port = rs.getString(2);
+            String count = rs.getString(4);
 
-//        String sqlCommand = "Select *, count(*) from codes where errorCode = '"+ errorCode + "' GROUP BY card order by 4 Desc;";
-//        rs = stmt.executeQuery(sqlCommand);
-//
-//        while(rs.next()){
-//            String card = rs.getString(1);
-//            String port = rs.getString(2);
-//            String count = rs.getString(4);
-//
-//            textArea.appendText("Card: " + card + " Port: " + port + "Count: " + count + "\n");
-//        }
+            textArea.appendText("Card: " + card + " Port: " + port + " [" + count + "]\n");
+        }
     }
 }

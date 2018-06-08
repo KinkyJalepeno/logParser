@@ -6,10 +6,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -19,8 +21,7 @@ import java.util.ResourceBundle;
 public class MainWindowController implements Initializable {
 
     private String filePath;
-    private String errorCode;
-
+    private String labelValue;
 
     @FXML
     private Label statusLabel;
@@ -62,6 +63,19 @@ public class MainWindowController implements Initializable {
 
     @FXML
     private TextField absolutePathLabel;
+    @FXML
+    private TextArea textArea;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        try {
+            DatabaseOperation cleanDatabase = new DatabaseOperation();
+            cleanDatabase.executeFlush();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void selectFile() {
@@ -81,6 +95,18 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
+    private void queryError0() throws SQLException {
+
+        labelValue = code0.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
     private void loadFile() throws IOException, SQLException {
 
         DatabaseOperation operation = new DatabaseOperation(filePath);
@@ -94,32 +120,6 @@ public class MainWindowController implements Initializable {
 
     }
 
-    @FXML
-    private void queryError0() {
-
-        if(code0.getText() != null) {
-            String labelContents = code0.getText();
-            String errorArray[] = labelContents.split("[\\s-\\s]");
-            errorCode = errorArray[1];
-
-            openErrorWindow();
-
-
-        }
-        return;
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        try {
-            DatabaseOperation cleanDatabase = new DatabaseOperation();
-            cleanDatabase.executeFlush();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void flushLabels() throws SQLException {
 
         Label[] labels = {code0, code1, code2, code3, code4, code5, code6, code7, code8, code9, code10, code11
@@ -129,31 +129,20 @@ public class MainWindowController implements Initializable {
 
             labels[i].setText("");
         }
+
+        textArea.clear();
+
         DatabaseOperation operation = new DatabaseOperation();
         operation.getErrors(labels);
     }
 
-    private void openErrorWindow(){
+    private void sendQuery(String labelValue) throws SQLException {
 
-        try {
+        String error[] = labelValue.split("[\\s]");
+        String errorCode = error[0];
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ErrorWindowUI.fxml"));
-            Parent root1 = loader.load();
-
-            Stage primaryStage = new Stage();
-            primaryStage.setScene(new Scene(root1));
-            primaryStage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //primaryStage.setTitle("Error Analysis");
-
-    }
-
-    public String getErrorCode(){
-
-        return errorCode;
+        DatabaseOperation operation = new DatabaseOperation();
+        operation.queryErrorCode(textArea, errorCode);
     }
 
 
