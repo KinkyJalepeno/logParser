@@ -37,21 +37,21 @@
             <Label fx:id="code11" layoutX="296.0" layoutY="93.0" prefHeight="17.0" prefWidth="90.0" />
             <Label fx:id="code15" layoutX="428.0" layoutY="93.0" prefHeight="17.0" prefWidth="90.0" />
             <Button fx:id="error0" layoutX="6.0" layoutY="5.0" mnemonicParsing="false" onAction="#queryError0" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error1" layoutX="6.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error2" layoutX="6.0" layoutY="62.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error3" layoutX="6.0" layoutY="91.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error4" layoutX="139.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error5" layoutX="139.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error6" layoutX="139.0" layoutY="63.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error7" layoutX="139.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error8" layoutX="272.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error9" layoutX="272.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error10" layoutX="272.0" layoutY="63.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error11" layoutX="272.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error12" layoutX="404.0" layoutY="6.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error13" layoutX="404.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error14" layoutX="404.0" layoutY="63.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
-            <Button fx:id="error15" layoutX="404.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error1" layoutX="6.0" layoutY="33.0" mnemonicParsing="false" onAction="#queryError1" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error2" layoutX="6.0" layoutY="62.0" mnemonicParsing="false" onAction="#queryError2" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error3" layoutX="6.0" layoutY="91.0" mnemonicParsing="false" onAction="#queryError3" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error4" layoutX="139.0" layoutY="6.0" mnemonicParsing="false" onAction="#queryError4" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error5" layoutX="139.0" layoutY="34.0" mnemonicParsing="false" onAction="#queryError5" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error6" layoutX="139.0" layoutY="63.0" mnemonicParsing="false" onAction="#queryError6" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error7" layoutX="139.0" layoutY="92.0" mnemonicParsing="false" onAction="#queryError7" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error8" layoutX="272.0" layoutY="6.0" mnemonicParsing="false" onAction="#queryError8" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error9" layoutX="272.0" layoutY="34.0" mnemonicParsing="false" onAction="#queryError9" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error10" layoutX="272.0" layoutY="63.0" mnemonicParsing="false" onAction="#queryError10" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error11" layoutX="272.0" layoutY="92.0" mnemonicParsing="false" onAction="#queryError11" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error12" layoutX="404.0" layoutY="6.0" mnemonicParsing="false" onAction="#queryError12" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error13" layoutX="404.0" layoutY="34.0" mnemonicParsing="false" onAction="#queryError13" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error14" layoutX="404.0" layoutY="63.0" mnemonicParsing="false" onAction="#queryError14" prefHeight="25.0" prefWidth="0.0" />
+            <Button fx:id="error15" layoutX="404.0" layoutY="92.0" mnemonicParsing="false" onAction="#queryError15" prefHeight="25.0" prefWidth="0.0" />
          </children></Pane>
       <Label fx:id="statusLabel" layoutX="159.0" layoutY="54.0" prefHeight="17.0" prefWidth="103.0">
          <font>

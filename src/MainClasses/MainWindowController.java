@@ -107,6 +107,186 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
+    private void queryError1() throws SQLException {
+
+        labelValue = code1.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError2() throws SQLException {
+
+        labelValue = code2.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError3() throws SQLException {
+
+        labelValue = code3.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError4() throws SQLException {
+
+        labelValue = code4.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError5() throws SQLException {
+
+        labelValue = code5.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError6() throws SQLException {
+
+        labelValue = code6.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError7() throws SQLException {
+
+        labelValue = code7.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError8() throws SQLException {
+
+        labelValue = code8.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError9() throws SQLException {
+
+        labelValue = code9.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError10() throws SQLException {
+
+        labelValue = code10.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError11() throws SQLException {
+
+        labelValue = code11.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError12() throws SQLException {
+
+        labelValue = code12.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError13() throws SQLException {
+
+        labelValue = code13.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError14() throws SQLException {
+
+        labelValue = code14.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
+    private void queryError15() throws SQLException {
+
+        labelValue = code15.getText();
+        System.out.println("error = " + labelValue);
+
+        if(labelValue != null){
+            sendQuery(labelValue);
+        }
+        return;
+    }
+
+    @FXML
     private void loadFile() throws IOException, SQLException {
 
         DatabaseOperation operation = new DatabaseOperation(filePath);
@@ -137,6 +317,8 @@ public class MainWindowController implements Initializable {
     }
 
     private void sendQuery(String labelValue) throws SQLException {
+
+        textArea.clear();
 
         String error[] = labelValue.split("[\\s]");
         String errorCode = error[0];
