@@ -79,19 +79,19 @@ public class DatabaseOperation {
 
             tmp = txtIn.readLine();
         }
-        Platform.runLater(()-> statusLabel.setText("Completed.."));
+        Platform.runLater(() -> statusLabel.setText("Completed.."));
 
         executeBatchAndClose();
     }
 
-    public int getRecordCount(){
+    public int getRecordCount() {
 
         return count;
     }
 
     void checkForKeyword(String errorCode, String card, String port) throws SQLException {
 
-        if(errorCode.contains("confirmation")){
+        if (errorCode.contains("confirmation")) {
             return;
         }
         ps.setInt(1, Integer.parseInt(card));
@@ -120,23 +120,23 @@ public class DatabaseOperation {
         rs = stmt.executeQuery(sqlCommand);
         int labelRef = 0;
 
-        while(rs.next()) {
+        while (rs.next()) {
             String error = rs.getString(1);
             int count = rs.getInt(2);
 
             labels[labelRef].setText(error + " - " + count);
 
-            labelRef ++;
+            labelRef++;
             System.out.println("result = " + error + "-" + count);
         }
     }
 
     public void queryErrorCode(TextArea textArea, String errorCode) throws SQLException {
 
-        String sqlCommand = "Select *, count(*) from codes where errorCode = '"+ errorCode + "' GROUP BY card order by 4 Desc;";
+        String sqlCommand = "Select *, count(*) from codes where errorCode = '" + errorCode + "' GROUP BY card order by 4 Desc;";
         rs = stmt.executeQuery(sqlCommand);
 
-        while(rs.next()){
+        while (rs.next()) {
             String card = rs.getString(1);
             String port = rs.getString(2);
             String count = rs.getString(4);
