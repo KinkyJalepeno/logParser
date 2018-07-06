@@ -133,7 +133,7 @@ public class DatabaseOperation {
 
     public void queryErrorCode(TextArea textArea, String errorCode) throws SQLException {
 
-        String sqlCommand = "SELECT *, count(*) FROM codes WHERE errorCode = '" + errorCode + "' GROUP BY port ORDER by 4 DESC;";
+        String sqlCommand = "SELECT *, count(*) FROM codes WHERE errorCode = '" + errorCode + "' GROUP BY card ORDER by 4 DESC;";
         rs = stmt.executeQuery(sqlCommand);
 
         while (rs.next()) {
