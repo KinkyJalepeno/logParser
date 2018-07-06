@@ -116,7 +116,7 @@ public class DatabaseOperation {
 
     public void getErrors(Label[] labels) throws SQLException {
 
-        String sqlCommand = "select errorcode, count(*) from codes GROUP BY errorcode order by 2 DESC;";
+        String sqlCommand = "select errorCode, count(*) from codes GROUP BY errorCode order by 2 DESC;";
         rs = stmt.executeQuery(sqlCommand);
         int labelRef = 0;
 
